@@ -26,14 +26,9 @@ export const initialState: CartState = {
 const MAX_ITEMS = 5;
 const MIN_ITEMS = 1;
 
-export const cartReducer = (
-  state: CartState = initialState,
-  actions: CartActions
-) => {
+export const cartReducer = (state: CartState = initialState, actions: CartActions) => {
   if (actions.type === "addToCart") {
-    const itemExist = state.cart.find(
-      (guitar) => guitar.id === actions.payload.item.id
-    );
+    const itemExist = state.cart.find((guitar) => guitar.id === actions.payload.item.id);
     let updatedCart: CartItem[] = [];
     if (itemExist) {
       updatedCart = state.cart.map((item) => {
